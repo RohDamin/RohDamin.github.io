@@ -21,7 +21,14 @@ entries:
       limit: 3
       show_more: true
       show_more_text: 더 읽어보기...
-      show_more_url: example2-archive.html
+      show_more_url: side-project-archive.html
+
+  - title: 회고
+    post_list:
+      category: review
+      show_more: true
+      show_more_text: See more posts...
+      show_more_url: review-archive.html
 
   - title: posts by category
     post_list:
