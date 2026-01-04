@@ -1,26 +1,27 @@
-<ul>
-  {%-for item in include.collection-%}
-    <li>
+<ul class="menu-list level-{{ include.level | default: 1 }}">
+  {%- for item in include.collection -%}
+   <li>
+    {%- assign next_level = include.level | plus: 1 -%}
     {%- if item.url -%}
-      <a href="{{ item.url }}">{{ item.title }}</a>
-    {%- else -%}
-      {{ item.title }}
+    <a href="{{ item.url }}">{{ item.title }}</a>
+    {%- else -%} {{ item.title }} {%- endif -%}
+  </li>
+
+</li>
+
+    {%- if item.post_list -%}
+      {% include post_list.html
+        category=item.post_list.category
+        limit=item.post_list.limit
+        show_more=item.post_list.show_more
+        show_more_text=item.post_list.show_more_text
+        show_more_url=item.post_list.show_more_url
+        level=next_level -%}
     {%- endif -%}
-    </li>
 
-    {%-if item.post_list-%}
-      {%
-        include post_list.html
-          category=item.post_list.category
-          limit=item.post_list.limit
-          show_more=item.post_list.show_more
-          show_more_text=item.post_list.show_more_text
-          show_more_url=item.post_list.show_more_url
-     -%}
-    {%-endif-%}
-
-    {%-if item.entries-%}
-      {%-include menu_item.html collection=item.entries-%}
-    {%-endif-%}
-  {%-endfor-%}
+    {%- if item.entries -%}
+      {%- assign next_level = include.level | plus: 1 -%}
+      {%- include menu_item.html collection=item.entries level=next_level -%}
+    {%- endif -%}
+  {%- endfor -%}
 </ul>

@@ -4,28 +4,76 @@
   img {
     filter: invert(1);
 
-    &.ioda { filter: invert(0); }
+    &.ioda {
+      filter: invert(0);
+    }
   }
-  .emoji { filter: invert(1); }
+  .emoji {
+    filter: invert(1);
+  }
   iframe {
     filter: invert(1);
   }
 }
 
-body[a="dark"] { @include dark-appearance; }
-
+body[a="dark"] {
+  @include dark-appearance;
+}
 
 @media (prefers-color-scheme: dark) {
-  body[a="auto"] { @include dark-appearance; }
+  body[a="auto"] {
+    @include dark-appearance;
+  }
 }
 // -------------------------------------------- //
+
+/* Theme color variables */
+:root {
+  --gray-light: #f1f3f5;
+  --gray: #adb5bd;
+  --gray-heavy: #868e96;
+  --gray-extraheavy: #495057;
+  --black: #212529;
+
+  --primary-light: #ffe2d9;
+  --primary: #ff6f61;
+  --primary-heavy: #e0503f;
+
+  --gradient-from: #ff9966;
+  --gradient-to: #ff5e62;
+}
+
+/* Main title uses primary color */
+.main-title {
+  color: var(--primary) !important;
+}
+
+/* Global link appearance using theme colors */
+a {
+  color: var(--primary) !important;
+  text-decoration: underline !important;
+}
+
+a:visited {
+  color: var(--primary-heavy) !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
 
 // bg color is also needed in html in order to
 // block body's background propagation
 // see: https://stackoverflow.com/a/61265706
-html, body { background: white; }
+html,
+body {
+  background: white;
+}
 
-html { height: 100%; scroll-behavior: smooth; }
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
 
 body {
   color: black;
@@ -37,17 +85,63 @@ body {
   overflow-wrap: break-word;
 }
 
-.post-meta { text-align: right; }
+.post-meta {
+  text-align: right;
+}
 
-h2, h3, h4, h5, h6 { margin-top: 3rem; }
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 3rem;
+}
 
-hr { margin: 2rem 0; }
+hr {
+  margin: 2rem 0;
+}
 
-p { margin: 1rem 0; }
+p {
+  margin: 1rem 0;
+}
 
-li { margin: 0.4rem 0; }
+li {
+  margin: 0.4rem 0;
+}
 
-*:target { background: yellow; }
+/* Restore default bullets site-wide (override Tailwind/preflight) */
+ul {
+  list-style-type: disc !important;
+  padding-left: 1.25rem !important;
+}
+
+ol {
+  list-style-type: decimal !important;
+  padding-left: 1.25rem !important;
+}
+
+/* Menu level-specific styling */
+/* Level 1: top-level menu — bold markers */
+.menu-list.level-1 > li::marker {
+  font-weight: 700;
+}
+
+/* Level 2 & 3: hollow circle markers (empty circle) */
+.menu-list.level-2,
+.menu-list.level-3 {
+  list-style-type: circle !important;
+  padding-left: 1rem;
+}
+
+/* Marker color for level 2 & 3 to make hollow circles visible */
+.menu-list.level-2 > li::marker,
+.menu-list.level-3 > li::marker {
+  color: var(--black) !important;
+}
+
+*:target {
+  background: yellow;
+}
 
 .w {
   max-width: 640px;
@@ -59,13 +153,21 @@ hr {
   text-align: center;
   border: 0;
 
-  &:before { content: '/////' }
-  &:after { content: attr(data-content) '/////' }
+  &:before {
+    content: "/////";
+  }
+  &:after {
+    content: attr(data-content) "/////";
+  }
 }
 
-table { width: 100%; }
+table {
+  width: 100%;
+}
 
-table, th, td {
+table,
+th,
+td {
   border: thin solid black;
   border-collapse: collapse;
   padding: 0.4rem;
@@ -88,11 +190,27 @@ blockquote {
   border: thin solid black;
   padding: 1rem;
 
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 }
 
 img {
   max-width: 100%;
   display: block;
   margin: 0 auto;
+}
+
+/* Default link appearance (covers markdown-generated links too) */
+a {
+  color: #2563eb; /* Tailwind blue-600 */
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #1e40af; /* darker blue for visited links */
+}
+
+a:hover {
+  text-decoration: none;
 }

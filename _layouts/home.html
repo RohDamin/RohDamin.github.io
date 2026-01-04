@@ -1,13 +1,13 @@
 ---
 layout: default
 ---
+
 <header>
-  <h1>{{ site.title }}</h1>
+  <h1 class="main-title mb-4 text-4xl font-bold">{{ site.title }}</h1>
   {%-if site.theme_config.show_description-%}
-    <p>{{ site.description }}</p>
+  <p class="text-gray-600">{{ site.description }}</p>
   {%-endif-%}
 </header>
 
-{%-include menu_item.html collection=site.data.menu.entries-%}
-
-{{ content }}
+{%- include menu_item.html collection=site.data.menu.entries level=1 -%} {{
+content }}
