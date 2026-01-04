@@ -94,11 +94,34 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+}
+
+/* Heading sizes for markdown content */
+article h1 {
+  font-size: 2rem;
+  margin: 0.75rem 0 0.75rem 0;
+}
+
+article h2 {
+  font-size: 1.5rem;
+  margin: 0.75rem 0 0.5rem 0;
+}
+
+article h3 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0 0.4rem 0;
+}
+
+article h4,
+article h5,
+article h6 {
+  font-size: 1rem;
+  margin: 0.4rem 0;
 }
 
 hr {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 p {
@@ -176,6 +199,21 @@ td {
 code {
   color: white;
   background: black;
+}
+
+/* Ensure inline code and preformatted blocks use monospace */
+code,
+pre,
+.highlight,
+.language-plaintext {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+    "Courier New", monospace;
+}
+
+/* Force bold rendering for strong/em tags */
+strong,
+b {
+  font-weight: 700;
 }
 
 div.highlighter-rouge code {
