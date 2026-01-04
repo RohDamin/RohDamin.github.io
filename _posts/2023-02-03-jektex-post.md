@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: post
 ---
 
@@ -16,5 +16,4 @@ incididunt ut labore et dolore magna aliqua.
 $$ \left[ \frac{-\hbar^2}{2\mu}\nabla^2 + V(\mathbf{r},t)\right] \Psi(\mathbf{r},t) $$
 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-ea commodo consequat.
-
+ea commodo consequat. -->

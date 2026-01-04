@@ -2,19 +2,27 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: info
+  - title: 소개
     entries:
-      - title: a (nearly) no-CSS, fast, minimalist Jekyll theme.
+      - title: Who am I?
       - title: github repo
         url: https://github.com/riggraz/no-style-please
       - title: "used by <a href='https://riggraz.dev'>riggraz.dev</a> and <a href='https://github.com/riggraz/no-style-please/network/dependents'>many others</a>"
 
-  - title: all posts
+  - title: 최신 포스트
     post_list:
-      limit: 5
+      limit: 3
       show_more: true
-      show_more_text: See archive...
+      show_more_text: 더 읽어보기...
       show_more_url: archive.html
+
+  - title: 사이드 프로젝트
+    post_list:
+      category: Side Projects
+      limit: 3
+      show_more: true
+      show_more_text: 더 읽어보기...
+      show_more_url: example2-archive.html
 
   - title: posts by category
     post_list:
@@ -25,7 +33,7 @@ entries:
 
   - title: rss
     url: feed.xml
-  
+
   - title: another list
     entries:
       - title: with subitems
